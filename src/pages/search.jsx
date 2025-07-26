@@ -5,7 +5,6 @@ import { Link, useParams } from "react-router-dom";
 import { Card, CardActionArea, CardMedia } from "@mui/material";
 import FavBtn from "../commponads/favBtn";
 import { MdDone } from "react-icons/md";
-import Footer from '../commponads/footer';
 
 export default function SearchPage() {
     useEffect(() => {
@@ -69,11 +68,11 @@ export default function SearchPage() {
     
 
     return (
-        <section>
-            <div className="pants-back vw-100 vh-100" style={{ backgroundImage: `url(https://i.pinimg.com/1200x/cc/73/64/cc7364225b4c9d7f972aa8f57790c59b.jpg)`, backgroundPosition: "center 30%", backgroundSize: "cover" }}>
+        <>
+            <header className="pants-back vw-100 vh-100" style={{ backgroundImage: `url(https://i.pinimg.com/1200x/cc/73/64/cc7364225b4c9d7f972aa8f57790c59b.jpg)`, backgroundPosition: "center 30%", backgroundSize: "cover" }}>
                 <h1 className="text w-100 h-100 d-flex justify-content-center align-items-center">SEARCH FOR {nameTitle}</h1>
-            </div>
-            <div className="container py-5">
+            </header>
+            <section className="container py-5">
                 <div className="row g-5 justify-content-center align-items-center">
                     {products === false ?
                         <div className="col-12 d-flex flex-column justify-content-center align-items-center vh-100">
@@ -123,8 +122,7 @@ export default function SearchPage() {
                             )
                         })}
                 </div>
-            </div>
-            <Footer />
-        </section>
+            </section>
+        </>
     );
 }

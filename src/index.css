@@ -700,6 +700,7 @@ nav ul li {
 
     .cart-item {
         height: 300px !important;
+        width: 50% !important;
     }
 
     .blue .content .link {
@@ -724,7 +725,6 @@ nav ul li {
 
     .footer {
         height: 300px !important;
-        margin-top: 200px !important;
     }
 
     .footer .container {
@@ -914,7 +914,7 @@ nav ul li {
 
 @media (max-width: 885px) {
     .img-animate {
-        height: 50% !important;
+        height: 80% !important;
     }
 
     .text {

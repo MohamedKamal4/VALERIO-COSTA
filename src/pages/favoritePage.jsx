@@ -3,17 +3,16 @@ import { MdDone } from "react-icons/md"
 import { Link } from "react-router-dom"
 import FavBtn from "../commponads/favBtn"
 import { useSelector } from "react-redux";
-import Footer from "../commponads/footer";
 
 export default function FavoritePage() {
     const dataFromLocal = useSelector((state) => state.favorite.items);
 
     return (
-        <section>
-            <div className=" vw-100 vh-100" style={{ backgroundImage: `url(https://i.pinimg.com/1200x/88/10/da/8810da114d2a535a612933b221128668.jpg)`,backgroundPosition: "top", backgroundSize: "cover" }}>
+        <>
+            <header className=" vw-100 vh-100" style={{ backgroundImage: `url(https://i.pinimg.com/1200x/88/10/da/8810da114d2a535a612933b221128668.jpg)`,backgroundPosition: "top", backgroundSize: "cover" }}>
                 <h1 className="text w-100 h-100 d-flex justify-content-center align-items-center">FAVORITES LIST</h1>
-            </div>
-            <div className="container py-5 mt-5">
+            </header>
+            <section className="container py-5 mt-5">
                 {dataFromLocal.length === 0 ?(
                 <div className="col-12 d-flex flex-column justify-content-center align-items-center vh-100">
                     <h1 className="name-product text-center">YOUR FAVORITE LIST IS EMTY</h1>
@@ -63,8 +62,7 @@ export default function FavoritePage() {
                     })}
                 </div>)
                 }
-            </div>
-            <Footer />
-        </section>
+            </section>
+        </>
     )
 }

@@ -7,15 +7,15 @@ export default function AllProducts() {
 
     const { products } = useData();
     return (
-        <section>
-            <div className="pants-back vw-100 vh-100" style={{ backgroundImage: `url(${pathPrefix}/assets/images/big.jpg)`, backgroundPosition: "center 60%", backgroundSize: "cover 55%" }}>
+        <>
+            <header className="pants-back vw-100 vh-100" style={{ backgroundImage: `url(https://i.pinimg.com/1200x/1b/08/fc/1b08fc3ce6873285386470ce91b17dd6.jpg)`, backgroundPosition: "center 60%", backgroundSize: "cover 55%" }}>
                 <h1 className="text w-100 h-100 d-flex justify-content-center align-items-center">BIG SALE</h1>
-            </div>
-            <div className="container py-5 mt-5">
+            </header>
+            <section className="container py-5 mt-5">
                 <cardData.Provider value={{  data : products  }}>
                     <Cards />
                 </cardData.Provider>
-            </div>
-        </section>
+            </section>
+        </>
     )
 }

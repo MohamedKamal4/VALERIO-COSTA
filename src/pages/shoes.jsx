@@ -33,11 +33,11 @@ export default function Shoes() {
 
 
     return (
-        <section>
-            <div className="shoes-back vw-100 vh-100" style={{backgroundImage: "url(https://i.pinimg.com/1200x/f1/6e/7f/f16e7ff302c1965f1c173308da6c4875.jpg)"}}>
+        <>
+            <header className="shoes-back vw-100 vh-100" style={{backgroundImage: "url(https://i.pinimg.com/1200x/f1/6e/7f/f16e7ff302c1965f1c173308da6c4875.jpg)"}}>
                 <h1 className="text text-center w-100 h-100 d-flex justify-content-center align-items-center">{name}</h1>
-            </div>
-            <div className="container vh-100" style={{ marginTop: "100px" }}>
+            </header>
+            <section className="container" style={{ marginTop: "100px" }}>
                 <div className="pants-links w-100 d-flex align-items-center py-5">
                     <Link to={"/shoes"} className={`${location.pathname === "/shoes" ? "active-btn" : ""} btn`}>ALL</Link>
                     <Link to={"casual"} className={`${location.pathname === "/shoes/casual" ? "active-btn" : ""} btn`}>CASUAL</Link>
@@ -55,7 +55,7 @@ export default function Shoes() {
                         {<SquareLoader />}
                     </div>
           }
-            </div>
-        </section>
+            </section>
+        </>
     )
 }

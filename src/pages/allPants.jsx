@@ -34,11 +34,11 @@ export default function AllPants() {
    },[location.pathname])
 
     return (
-        <section >
-            <div className="pants-back vw-100 vh-100" style={{backgroundImage: "url(https://i.pinimg.com/1200x/9c/66/64/9c66648408f0b38d295d719f05c493a5.jpg)"}}>
+        < >
+            <header className="pants-back vw-100 vh-100" style={{backgroundImage: "url(https://i.pinimg.com/1200x/9c/66/64/9c66648408f0b38d295d719f05c493a5.jpg)"}}>
                 <h1 className="text w-100 h-100 d-flex justify-content-center align-items-center">{name}</h1>
-            </div>
-            <div className="container vh-100">
+            </header>
+            <section className="container">
                 <div className="pants-links w-100 d-flex align-items-center py-5">
                     <Link to={"/pants"} className={`${location.pathname === "/pants" ? "active-btn" : ""} btn`}>ALL</Link>
                     <Link to={"casual"} className={`${location.pathname === "/pants/casual" ? "active-btn" : ""} btn`}>CASUAL</Link>
@@ -57,7 +57,7 @@ export default function AllPants() {
                           {<SquareLoader />}
                     </div>
           }
-            </div>
-        </section>
+            </section>
+        </>
     )
 }

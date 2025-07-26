@@ -20,11 +20,11 @@ export default function  Hoodies() {
 
 
     return (
-        <section >
-            <div className="hoodie-back vw-100 vh-100" style={{ backgroundImage: "url(https://i.pinimg.com/1200x/b5/cc/dd/b5ccdd080a37645f40f7bd31d131827f.jpg)" }}>
+        <>
+            <header className="hoodie-back vw-100 vh-100" style={{ backgroundImage: "url(https://i.pinimg.com/1200x/b5/cc/dd/b5ccdd080a37645f40f7bd31d131827f.jpg)" }}>
                 <h1 className="text w-100 h-100 d-flex justify-content-center align-items-center">HOODIES</h1>
-            </div>
-            <div className="container vh-100" style={{ marginTop: "100px" }}>
+            </header>
+             <section className="container" style={{ marginTop: "100px" }}>
                {loading === false ?
                     <cardData.Provider value={{  data : hoodie  }}>
                         <Cards />
@@ -34,7 +34,7 @@ export default function  Hoodies() {
                           {<SquareLoader />}
                     </div>
           }
-            </div>
-        </section>
+            </section>
+        </>
     )
 }

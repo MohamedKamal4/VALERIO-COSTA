@@ -21,9 +21,9 @@ export default function LoadingPage() {
 
 
   return (
-    <div className="vh-100 d-flex justify-content-center align-items-center flex-column">
+    <section className="vh-100 d-flex justify-content-center align-items-center flex-column">
       <SquareLoader />
       <p className="name-product text-center p-5">PLEASE WAIT SIX SECONDS</p>
-    </div>
+    </section>
   );
 }

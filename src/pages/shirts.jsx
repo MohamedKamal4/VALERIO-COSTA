@@ -20,11 +20,11 @@ export default function Shirt() {
 
 
     return (
-        <section>
-            <div className="shirt-back vw-100 vh-100" style={{ backgroundImage: "url(https://i.pinimg.com/1200x/c9/5d/6e/c95d6ef67a0185cd4763ba8e440d7fb4.jpg)" }}>
+        <>
+            <header className="shirt-back vw-100 vh-100" style={{ backgroundImage: "url(https://i.pinimg.com/1200x/c9/5d/6e/c95d6ef67a0185cd4763ba8e440d7fb4.jpg)" }}>
                 <h1 className="text w-100 h-100 d-flex justify-content-center align-items-center">SHIRTS</h1>
-            </div>
-            <div className="container vh-100" style={{ marginTop: "100px" }}>
+            </header>
+            <section className="container" style={{ marginTop: "100px" }}>
                {loading === false ?
                     <cardData.Provider value={{  data : shirt  }}>
                         <Cards />
@@ -33,8 +33,8 @@ export default function Shirt() {
                     <div className="d-flex flex-column justify-content-center align-items-center h-100">
                           {<SquareLoader />}
                     </div>
-          }
-            </div>
-        </section>
+                }
+            </section>
+        </>
     )
 }

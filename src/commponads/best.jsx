@@ -45,9 +45,11 @@ export default function BestSeller() {
     
 
     return (
-        <section >
-            <TopSold state={false}/>
-        <div className="container">
+    <>
+        <header className="tShirt-back vw-100 vh-100" style={{backgroundImage: "url(https://i.pinimg.com/1200x/c7/c8/d2/c7c8d279a12dbdddeba31d7902cfbadb.jpg)"}}>
+            <h1 className="text w-100 h-100 d-flex justify-content-center align-items-center">BEST SELLER</h1>
+        </header>
+        <section className="container">
             {productSelected.map((el, index) => {
                 const isEven = index % 2 === 0;
                 return (
@@ -82,8 +84,7 @@ export default function BestSeller() {
                 </div>
                 );
                 })}
-            </div>
-            <Footer />
-    </section>
+        </section>
+    </>
     )
 }

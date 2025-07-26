@@ -6,7 +6,6 @@ import { MdDone } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { cardData } from "../context/contextCard";
 import FavBtn from "./favBtn";
-import Footer from './footer';
 
 export default function Cards() {
 
@@ -37,7 +36,7 @@ export default function Cards() {
                     <Link className="link img-wrapper position-relative" to={`/details/product/${product.id}`}>
                         <CardMedia
                             component="img"
-                            height="400"
+                            height="450"
                             image={product.MainImage}
                             alt={product.name}
                             className="img-card"
@@ -108,12 +107,11 @@ export default function Cards() {
 
     return (
     <>
-        <div className="row g-5 justify-content-center align-items-center">
+        <section className="row g-5 justify-content-center align-items-center">
             {segments.map((segment) =>
                 data.slice(segment.start, segment.end).map(segment.render)
             )}
-        </div>
-        <Footer />    
+        </section>
     </>        
     );
 }

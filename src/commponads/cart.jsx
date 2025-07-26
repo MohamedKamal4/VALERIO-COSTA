@@ -6,7 +6,6 @@ import Quantity from "./quantity";
 import { useDispatch } from "react-redux";
 import { updateQuantity } from "../features/cartSlice/cartSlice";
 import FavBtn from "./favBtn";
-import GoTop from "./goTop";
 
 export default function Cart() {
   const cartItems = useSelector((state) => state.cart.items);
@@ -36,7 +35,7 @@ export default function Cart() {
 
   return (
     <>
-      <section style={{ paddingTop: "100px" }}>
+      <section style={{ padding: "100px 0px" }}>
         <div className="container d-flex flex-column justify-content-center align-items-center gap-5">
           <div className="row g-5 w-100 bg-white d-flex justify-content-center align-items-center " style={{position : "relative",zIndex : "10"}} >
             {cartItems.length === 0 ? (
@@ -48,7 +47,7 @@ export default function Cart() {
                   return (
                     <div key={item.id} className=" master-box col-12 d-flex flex-column justify-content-center align-items-center " style={{height: "600px",}}>
                       <div className="cart-box d-flex justify-content-center align-items-center" style={{width: "100%" , height: "100%"}}>
-                        <div className="cart-item position-relative px-3" style={{ width: "50%", height: "100%" }}>
+                        <div className="cart-item position-relative px-3" style={{ width: "30%", height: "80%" }}>
                           <Link className="link img-wrapper" to={`/details/product/${item.id}`} style={{ width: "50%",height: "100%" }}>
                             <img className="img-fluid" style={{ objectFit: "cover", width: "100%", height: "100%" }} src={item.product.MainImage} alt="" />
                           </Link>
@@ -161,9 +160,7 @@ export default function Cart() {
             }
           </div>
         </div>
-        <GoTop />
       </section>
-      <Footer />
     </>
   );
 }

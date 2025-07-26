@@ -9,8 +9,10 @@ import SearchPage from "./pages/search";
 import AllProducts from "./pages/allProducts";
 import LoadingPage from "./pages/loading";
 import ProtectedRoute from "./commponads/ProtectedRoute";
-import GoTop from "./commponads/goTop";
 import Navbar from "./commponads/navbar";
+import { AiFillCaretUp } from "react-icons/ai";
+import { useLocation } from "react-router-dom";
+import Footer from "./commponads/footer";
 
 // تحميل كسول
 export const loadApp = () => import("./App");
@@ -30,8 +32,10 @@ const Hoodies = lazy(() => import("./pages/hoodies"));
 const Tshirts = lazy(() => import("./pages/t-shirt"));
 
 export default function Main() {
+const location = useLocation()
+
   return (
-    <>
+    <main className="main position-relative">
     <Navbar />
     <DataProvider>
       <Routes>
@@ -71,12 +75,26 @@ export default function Main() {
         <Route path="/t-shirts" element={<ProtectedRoute><Tshirts /></ProtectedRoute>} />
         <Route path="/details/product/:id" element={<ProtectedRoute><Details /></ProtectedRoute>} />
         <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
-
-        {/* أي مسار غير معروف */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-        <GoTop />
-    </DataProvider>
-    </>
+      </DataProvider>
+      <button style={{
+            position: "fixed",
+            bottom: "20px",
+            right: "20px",
+            zIndex: 999999,
+            transition: "transform 0.3s ease-in-out",
+            color: "black",
+            display : location.pathname.includes("/details/product/") || location.pathname === "/home" || location.pathname === "/" ? "none" : "block"
+        }}
+            className="btn"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      ><AiFillCaretUp className="arrow-icon" color="black" size={30} /></button>
+      {location.pathname === "/home"?
+        null
+        :
+        <Footer />
+      }
+    </main>
   );
 }

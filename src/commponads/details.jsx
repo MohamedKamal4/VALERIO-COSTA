@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SquareLoader } from "react-spinners";
 import AddBox from "./addBox";
-import GoTop from "./goTop";
 import Cards from "./card";
 import { cardData } from "../context/contextCard";
 
@@ -114,8 +113,7 @@ const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   const content =
     screenWidth > 993 ? (
-      <section>
-      <div className="container details-content">
+      <section className="container details-content">
         {!loading ? (
           <>
             <div className="row h-50">
@@ -144,12 +142,9 @@ const [screenWidth, setScreenWidth] = useState(window.innerWidth);
             <SquareLoader />
           </div>
         )}
-        <GoTop />
-      </div>
-    </section>
+      </section>
     ) : (
-      <section className="position-relative " style={{ marginBottom: "100px" }}>
-      <div className="container details-content">
+      <section className="position-relative container details-content " style={{ marginBottom: "100px" }}>
         {!loading ? (
           <>
             <div className="row " style={{height: "40%"}}>
@@ -179,8 +174,8 @@ const [screenWidth, setScreenWidth] = useState(window.innerWidth);
           <div className="d-flex flex-column justify-content-center align-items-center vh-100">
             <SquareLoader />
           </div>
-        )}
-      </div>
+          )}
+        <AddBox product={product} sizes={sizes} />
     </section>
     );
   
@@ -188,20 +183,20 @@ const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   return (
     <>
       {content}
-      {!loading || screenWidth < 993 ?
-        showAddBox && <AddBox product={product} sizes={sizes} />
+      {/* {!loading || screenWidth < 993 ?
+        showAddBox && 
         :
         null
-      }
+      } */}
       <div ref={relatedRef} style={{ height: "1px", marginTop: "300px" }}></div>
-      <div className="w-100 flex-column d-flex justify-content-center align-items-center" style={{position: "relative",backgroundColor: "white",zIndex: "99999999999"}}>
+      <section className="w-100 flex-column d-flex justify-content-center align-items-center" style={{position: "relative",backgroundColor: "white",zIndex: "99999999999"}}>
         <p className="p-5 w-100 text-center text-black name-product" style={{ fontSize: "20px", fontWeight: "100" }}>SIMPLE PRODUCTS</p>
         <div className="container">
           <cardData.Provider value={{  data : smilerProducts  }}>
             <Cards />
           </cardData.Provider>
         </div>
-      </div>
+      </section>
     </>
     );
 }
