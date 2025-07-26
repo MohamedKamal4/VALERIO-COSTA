@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import Navbar from "./navbar";
 import { SquareLoader } from "react-spinners";
-import Footer from "./footer";
 import AddBox from "./addBox";
 import GoTop from "./goTop";
 import Cards from "./card";
@@ -190,17 +188,19 @@ const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   return (
     <>
       {content}
-      {!loading ?
+      {!loading || screenWidth < 993 ?
         showAddBox && <AddBox product={product} sizes={sizes} />
         :
         null
       }
       <div ref={relatedRef} style={{ height: "1px", marginTop: "300px" }}></div>
-      <div className="container flex-column d-flex justify-content-center align-items-center" style={{position: "relative",backgroundColor: "white",zIndex: "99999999999"}}>
-        <p className="p-5 w-100 text-center text-black name-product" style={{fontSize: "20px", fontWeight: "100"}}>SIMPLE PRODUCTS</p>
-        <cardData.Provider value={{  data : smilerProducts  }}>
-          <Cards />
-        </cardData.Provider>
+      <div className="w-100 flex-column d-flex justify-content-center align-items-center" style={{position: "relative",backgroundColor: "white",zIndex: "99999999999"}}>
+        <p className="p-5 w-100 text-center text-black name-product" style={{ fontSize: "20px", fontWeight: "100" }}>SIMPLE PRODUCTS</p>
+        <div className="container">
+          <cardData.Provider value={{  data : smilerProducts  }}>
+            <Cards />
+          </cardData.Provider>
+        </div>
       </div>
     </>
     );

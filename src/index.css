@@ -912,9 +912,9 @@ nav ul li {
 
 }
 
-@media (max-width: 768px) {
+@media (max-width: 885px) {
     .img-animate {
-        height: 70% !important;
+        height: 50% !important;
     }
 
     .text {

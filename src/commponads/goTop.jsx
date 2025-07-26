@@ -11,7 +11,7 @@ export default function GoTop() {
             zIndex: 10000000000000000,
             transition: "transform 0.3s ease-in-out",
             color: "black",
-            display : location.pathname.includes("/details/product/") || location.pathname === "/home" ? "none" : "block"
+            display : location.pathname.includes("/details/product/") || location.pathname === "/home" || location.pathname === "/" ? "none" : "block"
         }}
             className="btn"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

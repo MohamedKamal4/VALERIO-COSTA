@@ -4,7 +4,6 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import Scrollbar from "smooth-scrollbar";
 import { Link } from "react-router-dom";
 import BigSale from "./commponads/sale/bigsale";
-import Navbar from "./commponads/navbar";
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import Footer from "./commponads/footer";
