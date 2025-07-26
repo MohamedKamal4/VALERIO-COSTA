@@ -160,6 +160,8 @@ const [screenWidth, setScreenWidth] = useState(window.innerWidth);
                   <div><span className="name-product details-text">COUNTRY : {product.currency}</span></div>
                   <div><span className="name-product details-text">SOLD COUNT : {product.soldCount}</span></div>
                   <div><span className="name-product details-text">CATEGORY: {product.category}</span></div>
+                  <div><span className="name-product details-text">ORIGINAL PRICE : </span><span className="name-product details-text" style={{textDecoration: "line-through" , color: "red"}}> {product.originalPrice} $</span></div>
+                  <div><span className="name-product details-text">PRICE : {product.price} $</span></div>                
                 </div>
               </div>
               <div className="col-6 my-5" style={{backgroundImage : `url(${product.MainImage})`, backgroundSize: "cover", backgroundPosition: "center"}}></div>
@@ -183,11 +185,6 @@ const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   return (
     <>
       {content}
-      {/* {!loading || screenWidth < 993 ?
-        showAddBox && 
-        :
-        null
-      } */}
       <div ref={relatedRef} style={{ height: "1px", marginTop: "300px" }}></div>
       <section className="w-100 flex-column d-flex justify-content-center align-items-center" style={{position: "relative",backgroundColor: "white",zIndex: "99999999999"}}>
         <p className="p-5 w-100 text-center text-black name-product" style={{ fontSize: "20px", fontWeight: "100" }}>SIMPLE PRODUCTS</p>

@@ -18,7 +18,7 @@ export default function FavoritePage() {
                     <h1 className="name-product text-center">YOUR FAVORITE LIST IS EMTY</h1>
                 </div>)
                     :
-                (<div className="row g-5 justify-content-center align-items-center">
+                (<div className="row g-5 justify-content-center align-items-center" style={{paddingBottom: "300px"}}>
                     {dataFromLocal.map((product) => {
                         return (
                         <div key={product.id} className="col-11 col-sm-6 col-lg-4 ">

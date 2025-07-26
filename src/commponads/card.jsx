@@ -107,7 +107,7 @@ export default function Cards() {
 
     return (
     <>
-        <section className="row g-5 justify-content-center align-items-center">
+        <section className="row g-5 justify-content-center align-items-center" style={{paddingBottom: "300px"}}>
             {segments.map((segment) =>
                 data.slice(segment.start, segment.end).map(segment.render)
             )}

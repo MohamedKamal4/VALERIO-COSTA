@@ -35,7 +35,7 @@ export default function Cart() {
 
   return (
     <>
-      <section style={{ padding: "100px 0px" }}>
+      <section style={{ paddingTop: "100px", paddingBottom: "300px" }}>
         <div className="container d-flex flex-column justify-content-center align-items-center gap-5">
           <div className="row g-5 w-100 bg-white d-flex justify-content-center align-items-center " style={{position : "relative",zIndex : "10"}} >
             {cartItems.length === 0 ? (

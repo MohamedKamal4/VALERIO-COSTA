@@ -43,7 +43,7 @@ export default function AddBox({ product, sizes }) {
       return;
     }
 
-    if (count === 0) {
+    if (screenWidth > 993 && count === 0) {
       setError("PLEASE CHOOSE A QUANTITY");
       return;
     }
@@ -236,33 +236,7 @@ const handleUpdateQuantity = () => {
       </div>
     </div>
       ) : (
-        <section className="row bg-white add-box w-100 d-flex flex-column align-items-center position-fixed bottom-0 left-0">
-
-          <div className="price-box flex-column d-flex justify-content-between align-items-center col-12 py-2">
-                
-            <div className="d-flex justify-content-between align-items-center w-100">
-              <div className="w-75 p-3 d-flex justify-content-start gap-3 align-items-center">
-                <span className="price-product price-card" style={{ fontSize: "12px" }}>{product.originalPrice} $</span>
-                <span className="name-product originalPrice-price" style={{ fontSize: "12px" }}>
-                  {product.price} $
-                </span>
-              </div>
-              <FavBtn data={product} />
-            </div>
-          
-            <div className="px-3 d-flex w-100 justify-content-between align-items-center gap-1 ">
-              <span className="name-product w-50 stock-product " style={{ fontSize: "8px" }}>
-                {inStock === 0 ? (
-                  "OUT OF STOCK"
-                ) : (
-                  `IN STOCK ${inStock}`
-                )}
-              </span>
-                <Quantity count={count} setCount={setCount} product={product} inStock={inStock} />
-            </div>
-                
-          </div>
-
+        <section className="row py-4 gap-3 bg-white add-box w-100 d-flex flex-column align-items-center position-fixed bottom-0 left-0">
           <div
             className="btn-box d-flex justify-content-between gap-1 align-items-center col-12 p-1"
             style={{ height: "50px" }}>
@@ -294,7 +268,7 @@ const handleUpdateQuantity = () => {
 
           {existingItem && (
             <div className="mt-2 col-12 text-center" style={{ fontSize: "10px", color: "green" }}>
-              Already in cart: Size <b>{existingItem.size}</b>, Quantity: <b>{existingItem.quantity}</b>
+              Already in cart: Size <b>{existingItem.size}</b>, Quantity: <b>1</b>
             </div>
           )}
 
@@ -302,7 +276,7 @@ const handleUpdateQuantity = () => {
             <div className="btn-add bg-black w-100">
               <button
                 className="btn text-white w-100 rounded-0 h-100 d-flex justify-content-center align-items-center"
-                disabled={!selectedSize || count === 0}
+                disabled={!selectedSize}
                 onClick={
                   existingItem
                     ? isQuantityChanged
@@ -318,7 +292,8 @@ const handleUpdateQuantity = () => {
                   : "ADD TO CART"}
               </button>
             </div> 
-          </div>          
+              <FavBtn data={product} />  
+          </div>
         </section>
            
       );

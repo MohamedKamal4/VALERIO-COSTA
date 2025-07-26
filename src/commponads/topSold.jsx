@@ -23,8 +23,8 @@ export default function TopSold({ state }) {
         </video>
         ) : (
           <img
-            className=" pants-back"
-            style={{ width: "100%", height: "50%" }}
+            className=" fav-back"
+            style={{ width: "100%", height: "50%", objectFit: "cover" , backgroundPosition: "top" }}
             src="https://i.pinimg.com/1200x/ed/99/87/ed9987c687cc2cdcd007774764cd00e2.jpg"
             alt=""
           />
