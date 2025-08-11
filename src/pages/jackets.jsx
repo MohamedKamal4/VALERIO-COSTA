@@ -5,6 +5,8 @@ import { useData } from "../context/contextData";
 import { SquareLoader } from "react-spinners";
 import { cardData } from "../context/contextCard";
 import Cards from "../commponads/card";
+import AOS from "aos";
+import Head from "./headPage";
 
 export default function Jackets() {
     const { products, loading } = useData();
@@ -17,13 +19,20 @@ export default function Jackets() {
          setJackets(alljackets)
     },[products])
 
-
+    useEffect(() => {
+        AOS.init({
+          duration: 1000,
+          once: false,
+        });
+      }, []);
+      
+      useEffect(() => {
+        AOS.refresh();
+      }, []);
 
     return (
         <>
-            <header className="jackets-back vw-100 vh-100" style={{ backgroundImage: "url(https://i.pinimg.com/1200x/0e/5a/d4/0e5ad4babeeea0bacb81e6c9576be8ea.jpg)"}}>
-                <h1 className="text w-100 h-100 d-flex justify-content-center align-items-center">JACKETS</h1>
-            </header>
+            <Head animate={''} name={'JACKETS'} other={'COLLECTION'} img={`https://i.pinimg.com/1200x/c0/22/bc/c022bc957d27c7423d6ab21978e47174.jpg`} />
             <section className="container" style={{ marginTop: "100px" }}>
                {loading === false ?
                     <cardData.Provider value={{  data : jackets  }}>

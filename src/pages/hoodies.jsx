@@ -5,6 +5,8 @@ import { useData } from "../context/contextData";
 import { SquareLoader } from "react-spinners";
 import { cardData } from "../context/contextCard";
 import Cards from "../commponads/card";
+import AOS from "aos";
+import Head from "./headPage";
 
 export default function  Hoodies() {
     const { products, loading } = useData();
@@ -18,13 +20,20 @@ export default function  Hoodies() {
     },[products])
 
 
-
+  useEffect(() => {
+        AOS.init({
+          duration: 1000,
+          once: false,
+        });
+      }, []);
+      
+      useEffect(() => {
+        AOS.refresh();
+      }, []);
     return (
         <>
-            <header className="hoodie-back vw-100 vh-100" style={{ backgroundImage: "url(https://i.pinimg.com/1200x/b5/cc/dd/b5ccdd080a37645f40f7bd31d131827f.jpg)" }}>
-                <h1 className="text w-100 h-100 d-flex justify-content-center align-items-center">HOODIES</h1>
-            </header>
-             <section className="container" style={{ marginTop: "100px" }}>
+            <Head animate={''} name={'HOODIES'} other={'COLLECTION'} img={`https://i.pinimg.com/1200x/88/f3/a4/88f3a49f621d42012a419d8fb6751844.jpg`} />
+            <section className="container" style={{ marginTop: "100px" }}>
                {loading === false ?
                     <cardData.Provider value={{  data : hoodie  }}>
                         <Cards />

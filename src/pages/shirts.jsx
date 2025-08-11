@@ -5,6 +5,8 @@ import { useData } from "../context/contextData";
 import { SquareLoader } from "react-spinners";
 import { cardData } from "../context/contextCard";
 import Cards from "../commponads/card";
+import AOS from "aos";
+import Head from "./headPage";
 
 export default function Shirt() {
     const { products, loading } = useData();
@@ -17,13 +19,21 @@ export default function Shirt() {
          setShirt(shirt)
     },[products])
    
-
+        useEffect(() => {
+            AOS.init({
+              duration: 1000,
+              once: false,
+            });
+          }, []);
+          
+          useEffect(() => {
+            AOS.refresh();
+        }, []);
+    
 
     return (
         <>
-            <header className="shirt-back vw-100 vh-100" style={{ backgroundImage: "url(https://i.pinimg.com/1200x/c9/5d/6e/c95d6ef67a0185cd4763ba8e440d7fb4.jpg)" }}>
-                <h1 className="text w-100 h-100 d-flex justify-content-center align-items-center">SHIRTS</h1>
-            </header>
+            <Head animate={''} name={'SHIRTS'} other={'COLLECTION'} img={`https://i.pinimg.com/1200x/d2/ef/c0/d2efc025ff8224d67c2e76ae60bb03bf.jpg`} />
             <section className="container" style={{ marginTop: "100px" }}>
                {loading === false ?
                     <cardData.Provider value={{  data : shirt  }}>

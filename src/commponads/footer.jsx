@@ -1,6 +1,10 @@
+import { useLocation } from "react-router-dom";
+
 export default function Footer() {
+  const location = useLocation();
+
   return (
-    <footer className="footer bg-white position-relative py-4 w-100" style={{zIndex: "99999"}}>
+    <footer className={` ${location.pathname === "/login" || location.pathname === "/" || location.pathname === "/register" || location.pathname.includes("/admin") || location.pathname === "/cart" ? "d-none" : ""} ${location.pathname === "/home" ? "showing-footer" : ""} footer bg-white py-4 w-100`}>
       <div className="container d-flex flex-column align-items-center">
         <p className="fw-bold mb-3">JOIN OUR NEWSLETTER</p>
         <ul className="list-unstyled d-flex justify-content-center gap-3 mb-2">

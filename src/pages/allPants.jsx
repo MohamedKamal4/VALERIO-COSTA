@@ -6,12 +6,15 @@ import { useData } from "../context/contextData";
 import { SquareLoader } from "react-spinners";
 import { cardData } from "../context/contextCard";
 import Cards from "../commponads/card";
+import "aos/dist/aos.css";
+import AOS from "aos";
+import Head from "./headPage";
 
 export default function AllPants() {
 
     const { products, loading } = useData();
     const [Pants, setPants] = useState([]);
-    const [name , setName] = useState("PANTS")
+    const [name , setName] = useState("ALL PANTS")
     const location = useLocation()
     useEffect(() => { 
           const allpants = products.filter((el) =>
@@ -31,13 +34,23 @@ export default function AllPants() {
       }else if(location.pathname === "/pants/sports"){
           setName("SPORTS PANTS")
       }
-   },[location.pathname])
+    }, [location.pathname])
+    
+    useEffect(() => {
+        AOS.init({
+          duration: 1000,
+          once: false,
+        });
+      }, []);
+      
+      useEffect(() => {
+        AOS.refresh();
+      }, [name]);
+      
 
     return (
         < >
-            <header className="pants-back vw-100 vh-100" style={{backgroundImage: "url(https://i.pinimg.com/1200x/9c/66/64/9c66648408f0b38d295d719f05c493a5.jpg)"}}>
-                <h1 className="text w-100 h-100 d-flex justify-content-center align-items-center">{name}</h1>
-            </header>
+            <Head animate={name} name={name} other={'COLLECTION'} img={`https://i.pinimg.com/1200x/70/bf/6a/70bf6a5d8bf01afcc4ef44e2f98cb99c.jpg`} />
             <section className="container">
                 <div className="pants-links w-100 d-flex align-items-center py-5">
                     <Link to={"/pants"} className={`${location.pathname === "/pants" ? "active-btn" : ""} btn`}>ALL</Link>

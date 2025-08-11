@@ -1,0 +1,479 @@
+/*start collecion*/
+
+.fade-out {
+    animation: fadeOut 0.5s ease forwards;
+}
+
+
+
+.list li .link {
+    font-size: 12px !important;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+}
+
+section {
+    overflow: hidden !important;
+}
+
+.fade-collection {
+    animation: fadeOutIn 0.6s ease;
+}
+
+@keyframes fadeOutIn {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.new-store ul li {
+    font-size: 12px !important;
+}
+
+
+/*start collecion responsiv*/
+@media (max-width: 1200px) {
+   .GLOBAL-SHOWING {
+    font-size: 13px !important;
+   }
+   body {
+    overflow-x: hidden !important;
+   }
+}
+
+@media (max-width: 1050px) {
+    .GLOBAL-SHOWING {
+        font-size: 10px !important;
+    }
+}
+
+@media (min-width: 1000px) {
+    .btns .btn-collection {
+        font-size: 20px !important;
+        width: 100px;
+        text-align: end;
+    }
+    .img-head {
+        width: 70% !important;
+    }
+
+    .scroll-down {
+        font-size: 10px !important;
+    }
+
+    .collection-name {
+        top: 20% !important;
+    }
+
+    .collection-name h1 {
+        font-size: 200px !important;
+        letter-spacing: 20px !important;
+    }
+    main .container .left-head {
+        height: 85% !important;
+    }
+
+    .season-section {
+        top: 90px !important;
+    }
+}
+
+@media (max-width: 1150px) {
+    .dotts-background {
+        right: 150px !important;
+    }
+
+    .collection-name h1 {
+        font-size: 180px !important;
+        letter-spacing: 20px !important;
+    }
+
+    .with-name-brand h2 {
+        font-size: 60px !important;
+    }
+
+    .season-name,
+    .season-date {
+        font-size: 130px !important;
+    }
+
+    .season-product-details p {
+        font-size: 10px !important;
+    }
+}
+
+@media (max-width: 950px) {
+    main .hero-section {
+        height: 90vh !important;
+    }
+    .btns .btn-collection {
+        font-size: 11px !important;
+        width: 50px;
+    }
+
+    .collection-name h1 {
+        font-size: 120px !important;
+        letter-spacing: 20px;
+    }
+
+
+    div.QUALIFIED {
+        font-size: 10px !important;
+    }
+
+    .show {
+        font-size: 10px !important;
+    }
+
+    .season-section {
+        top: 50px !important;
+    }
+
+    .season-section .numbers{
+        width: 100% !important;
+    }
+
+    .season-section .pic-remove {
+        display: none !important;
+    }
+
+    .refined p {
+        font-size: 40px !important;
+    }
+
+    .head-text {
+        font-size: 130px !important;
+    }
+
+}
+@media (max-width: 800px) {
+    .GLOBAL-SHOWING {
+        font-size: 8px !important;
+        color: black !important;
+    }
+
+    .best-seller {
+        font-size: 100px !important;
+    }
+    .best-seller-caption {
+        font-size: 15px !important;
+    }
+
+    .sale-box {
+        height: 400px !important;
+    }
+
+    .intro span {
+        font-size: 80px !important;
+    }
+}
+
+
+@media (max-width: 750px){
+    .collection-name h1 {
+        font-size: 80px !important;
+    }
+
+    .container .be p {
+        font-size: 40px !important;
+    }
+    .exp {
+        display: none !important;
+    }
+
+    .name-brand-box {
+        width: 25% !important;
+    }
+
+    .with-name-brand h2 {
+        font-size: 40px !important;
+    }
+
+    .sale-img-hide {
+        display: none !important;
+    }
+    .QUALIFIED-box {
+        width: 75% !important;
+    }
+
+    .sale-box-left .slice {
+        width: 100% !important;
+    }
+    .sale-box-left {
+        width: 25% !important;
+    }
+
+    .event-data {
+        font-size: 100px !important;
+    }
+    .GLOBAL-SHOWING {
+        font-size: 5px !important;
+    }
+
+    .img-event-one,
+    .img-event-two {
+        height: 50% !important;
+    }
+
+    .img-event-two {
+        margin-bottom: 50px !important;
+    }
+
+    .star,
+    .carpet {
+        font-size: 110px !important;
+    }
+} 
+
+
+@media (max-width: 650px) {
+    .star,
+    .carpet {
+        font-size: 110px !important;
+        letter-spacing: 20px !important;
+    }
+
+    .book-now,
+    .book-date {
+        font-size: 5px !important;
+    }
+
+    .intro span {
+        font-size: 60px !important;
+    }
+}
+
+
+
+@media (max-width: 550px){
+    
+    .intro span {
+        font-size: 50px !important;
+    }
+} 
+@media (max-width: 500px){
+    .intro span {
+        font-size: 40px !important;
+    }
+
+    .collection-name h1 {
+        font-size: 70px !important;
+    }
+
+    .season-product-details p {
+        font-size: 8px !important;
+    }
+
+    .season-date,
+    .season-name {
+        font-size: 100px !important;
+    }
+
+    .refined p {
+        font-size: 40px !important;
+    }
+} 
+
+
+@media (max-width: 450px) {
+
+    .collection-name h1 {
+        font-size: 70px !important;
+        letter-spacing: 10px !important;
+    
+    }
+    
+    .best-seller {
+        font-size: 50px !important;
+    }
+    .slider div img {
+        width: 100% !important;
+        height: 50% !important;
+    }
+    .best-seller {
+        bottom: 50px !important;
+    }
+    .slider div .diff {
+        top: 50px !important;
+    }
+
+    .with-name-brand h2 {
+        font-size: 30px !important;
+    }
+
+    section .container .be p {
+        font-size: 35px !important;
+    }
+    section .container .be p span{
+        width: 50px !important;
+    }
+
+    .QUALIFIED {
+        padding: 10px !important;
+    }
+
+    .icons {
+        gap: 10px !important;
+    }
+
+    .season-date,
+    .season-name {
+        font-size: 90px !important;
+    }
+
+    .numbers div.w-100 div.img-p p {
+        font-size: 10px !important;
+    
+    }
+
+    .refined p {
+        font-size: 35px !important;
+    }
+
+    .intro span {
+        font-size: 30px !important;
+    }
+
+    .btns .btn-collection {
+        font-size: 8px !important;
+        width: 50px;
+    }
+
+    .scroll-down {
+        font-size: 8px !important;
+        width: fit-content;
+    }
+    .arrow-down-icon {
+        height: 8px !important;
+        width: 5px !important;
+    }
+
+    .head-text {
+        font-size: 70px !important;
+    }
+
+    .season-product-details p {
+        font-size: 5px !important;
+        font-weight: bold;
+    }
+    .show {
+        margin-right: 0 !important;
+    }
+
+    .best-seller {
+        font-size: 50px !important;
+    }
+    div .list li .link {
+        font-size: 12px !important;
+    }
+}
+@media (max-width: 410px){
+    .collection-name h1 {
+        font-size: 70px !important;
+    }
+} 
+@media (max-width: 375px) {
+    .collection-name h1 {
+        font-size: 60px !important;
+    }
+
+    .head-text {
+        font-size: 60px !important;
+    }
+
+    .best-seller {
+        font-size: 40px !important;
+    }
+
+    .intro span {
+        font-size: 18px !important;
+        letter-spacing: unset !important;
+    }
+
+}
+
+@media (max-width: 320px) {
+    .head-text {
+        font-size: 70px !important;
+    }
+    .best-seller {
+        font-size: 40px !important;
+    }
+    .collection-name h1 {
+        font-size: 60px !important;
+    }
+
+    .btns .btn-collection {
+        font-size: 5px !important;
+    }
+
+    .img-p {
+        width: 80% !important;
+    }
+
+    .head-text {
+        justify-content: center !important;
+
+    }
+
+    .head-text {
+        gap: 20px !important;
+    }
+
+    .intro {
+        font-size: 50px !important;
+        gap: 10px !important;
+    }
+
+    main .hero-section {
+        height: 430px !important;
+    }
+
+    .btns {
+        align-items: start !important;
+    }
+
+    .with-name-brand h2 {
+        font-size: 20px !important;
+    }
+    
+
+    .btns .btn-collection {
+        font-size: 10px !important;
+    }
+
+    .collection-name h1 {
+        font-size: 45px !important;
+    }
+
+    .best-seller {
+        justify-content: center !important;
+    }
+    
+    .refined p {
+        font-size: 30px !important;
+    }
+}
+/*end collecion responsiv*/
+/*end collecion*/

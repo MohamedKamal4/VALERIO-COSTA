@@ -9,12 +9,9 @@ export default function FavoritePage() {
 
     return (
         <>
-            <header className=" vw-100 vh-100" style={{ backgroundImage: `url(https://i.pinimg.com/1200x/88/10/da/8810da114d2a535a612933b221128668.jpg)`,backgroundPosition: "top", backgroundSize: "cover" }}>
-                <h1 className="text w-100 h-100 d-flex justify-content-center align-items-center">FAVORITES LIST</h1>
-            </header>
             <section className="container py-5 mt-5">
                 {dataFromLocal.length === 0 ?(
-                <div className="col-12 d-flex flex-column justify-content-center align-items-center vh-100">
+                <div className="col-12 d-flex flex-column justify-content-center align-items-center" style={{height: "100px"}}>
                     <h1 className="name-product text-center">YOUR FAVORITE LIST IS EMTY</h1>
                 </div>)
                     :
@@ -22,12 +19,12 @@ export default function FavoritePage() {
                     {dataFromLocal.map((product) => {
                         return (
                         <div key={product.id} className="col-11 col-sm-6 col-lg-4 ">
-                            <Card style={{ boxShadow: "none", width: "100%" }}>
+                            <Card style={{ boxShadow: "none", width: "80%" }}>
                                 <CardActionArea>
                                 <Link className="link img-wrapper position-relative" to={"/details/product/" + product.id}>
                                     <CardMedia
                                         component="img"
-                                        height="400"
+                                        height="300"
                                         image={product.MainImage}
                                         alt={product.name}
                                         className="img-card"

@@ -5,6 +5,8 @@ import { Link, useParams } from "react-router-dom";
 import { Card, CardActionArea, CardMedia } from "@mui/material";
 import FavBtn from "../commponads/favBtn";
 import { MdDone } from "react-icons/md";
+import Head from './headPage';
+
 
 export default function SearchPage() {
     useEffect(() => {
@@ -65,13 +67,21 @@ export default function SearchPage() {
           }, []);
         
         
+        useEffect(() => {
+            AOS.init({
+              duration: 1000,
+              once: false,
+            });
+          }, []);
+          
+          useEffect(() => {
+            AOS.refresh();
+          }, [nameTitle]);
     
 
     return (
         <>
-            <header className="pants-back vw-100 vh-100" style={{ backgroundImage: `url(https://i.pinimg.com/1200x/cc/73/64/cc7364225b4c9d7f972aa8f57790c59b.jpg)`, backgroundPosition: "center 30%", backgroundSize: "cover" }}>
-                <h1 className="text w-100 h-100 d-flex justify-content-center align-items-center">SEARCH FOR {nameTitle}</h1>
-            </header>
+            <Head animate={''} name={'SEARCH'} other={`FOR ${nameTitle}`} img={`https://i.pinimg.com/1200x/c0/22/bc/c022bc957d27c7423d6ab21978e47174.jpg`} />
             <section className="container py-5">
                 <div className="row g-5 justify-content-center align-items-center">
                     {products === false ?

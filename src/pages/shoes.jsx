@@ -6,13 +6,15 @@ import { useData } from "../context/contextData";
 import { SquareLoader } from "react-spinners";
 import { cardData } from "../context/contextCard";
 import Cards from "../commponads/card";
+import AOS from "aos";
+import Head from "./headPage";
 
 
 export default function Shoes() {
   const location = useLocation()
   const { products, loading } = useData();
   const [shoes, setShoes] = useState([]);
-  const [name , setName] = useState("SHOES")
+  const [name , setName] = useState("ALL SHOES")
     useEffect(() => { 
           const allshoes = products.filter((el) =>
             el.type === "shoes"
@@ -31,12 +33,23 @@ export default function Shoes() {
       }
    },[location.pathname])
 
+    
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: false,
+        });
+        }, []);
+        
+        useEffect(() => {
+        AOS.refresh();
+    }, [name]);
+        
 
     return (
         <>
-            <header className="shoes-back vw-100 vh-100" style={{backgroundImage: "url(https://i.pinimg.com/1200x/f1/6e/7f/f16e7ff302c1965f1c173308da6c4875.jpg)"}}>
-                <h1 className="text text-center w-100 h-100 d-flex justify-content-center align-items-center">{name}</h1>
-            </header>
+
+            <Head animate={name} name={name} other={'COLLECTION'} img={`https://i.pinimg.com/1200x/1d/86/bb/1d86bbf2766b79322cd2d35bcaa426c5.jpg`} />
             <section className="container" style={{ marginTop: "100px" }}>
                 <div className="pants-links w-100 d-flex align-items-center py-5">
                     <Link to={"/shoes"} className={`${location.pathname === "/shoes" ? "active-btn" : ""} btn`}>ALL</Link>

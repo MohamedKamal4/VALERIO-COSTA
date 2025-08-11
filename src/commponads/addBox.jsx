@@ -149,22 +149,11 @@ const handleUpdateQuantity = () => {
     }, []);
   
     const content =
-      screenWidth > 993 ? (
-        <div className="col-6 d-flex flex-column gap-4 justify-content-center align-items-center">
-      <div className="add-box w-100 h-50 p-4 d-flex flex-column align-items-center">
-        <h5 className="w-100 brand-name" style={{ color: "black", fontWeight: "100" }}>
-          {product.name}
-        </h5>
+      <div className="add-box w-100 h-50 py-4 d-flex flex-column align-items-center">
 
         <div className="price-box d-flex justify-content-center flex-column align-items-center w-100 py-2">
-            <div className="price d-flex w-100 gap-3">
-              <span className="price-product">{product.originalPrice} $</span>
-              <span className="name-product originalPrice-price" style={{ fontSize: "8px" }}>
-                {product.price} $
-              </span>
-            </div>
           <div className="d-flex w-100 d-flex justify-content-between align-items-center">
-            <span className="name-product stock-product w-50" style={{ fontSize: "8px" }}>
+            <span className="name-product stock-product w-50 text-black fw-bold" style={{ fontSize: "8px" }}>
               {inStock === 0 ? (
                   "OUT OF STOCK"
                 ) : (
@@ -234,69 +223,7 @@ const handleUpdateQuantity = () => {
           </div>
         )}
       </div>
-    </div>
-      ) : (
-        <section className="row py-4 gap-3 bg-white add-box w-100 d-flex flex-column align-items-center position-fixed bottom-0 left-0">
-          <div
-            className="btn-box d-flex justify-content-between gap-1 align-items-center col-12 p-1"
-            style={{ height: "50px" }}>
-            {sizes.map((size) => (
-              <button
-                key={size}
-                className={`bg-transparent ${selectedSize === size ? "btn-size" : ""}`}
-                style={{
-                  fontSize: "10px",
-                  letterSpacing: "2px",
-                  border: "unset",
-                  width: "40px",
-                  height: "100%",
-                  color: "black",
-                }}
-                onClick={() => setSelectedSize(size)}
-              >
-                {size}
-              </button>
-            ))}
-          </div>
-
-              
-          {error && (
-            <Stack className="col-12" spacing={2}>
-              <Alert severity="error">{error}</Alert>
-            </Stack>
-          )}
-
-          {existingItem && (
-            <div className="mt-2 col-12 text-center" style={{ fontSize: "10px", color: "green" }}>
-              Already in cart: Size <b>{existingItem.size}</b>, Quantity: <b>1</b>
-            </div>
-          )}
-
-          <div className=" d-flex col-12 mt-2 justify-content-between align-items-center">
-            <div className="btn-add bg-black w-100">
-              <button
-                className="btn text-white w-100 rounded-0 h-100 d-flex justify-content-center align-items-center"
-                disabled={!selectedSize}
-                onClick={
-                  existingItem
-                    ? isQuantityChanged
-                      ? handleUpdateQuantity
-                      : handleRemoveFromCart
-                    : handleAddToCart
-                }
-              >
-                {existingItem
-                  ? isQuantityChanged
-                    ? "UPDATE QUANTITY"
-                    : "REMOVE FROM CART"
-                  : "ADD TO CART"}
-              </button>
-            </div> 
-              <FavBtn data={product} />  
-          </div>
-        </section>
-           
-      );
+   
   
   return (
     <>
