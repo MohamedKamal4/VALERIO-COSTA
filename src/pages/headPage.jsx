@@ -1,7 +1,10 @@
 export default function Head({animate, name ,img,other}){
     return(
         <header style={{marginBottom: '50px'}} className="vw-100 vh-100 d-flex justify-content-center align-items-start">
-            <div            
+            <div 
+                data-aos="zoom-in"
+                data-aos-offset="200"
+                data-aos-easing="ease-in-out"           
                 style={{position:'relative' , background: `url(${img})` , backgroundPosition: 'center' , backgroundSize: 'cover' , backgroundRepeat: 'no-repeat' }}
                 className="flex-column w-100 h-100 d-flex justify-content-start align-items-center">
                 <div className="w-100 h-100">

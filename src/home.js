@@ -263,8 +263,8 @@ function Home() {
                       ))}
                     </div>
                     <button
-                      className="shop-now-btn bg-black text-white p-2 mt-2"
-                      style={{ fontSize: "8px" }}
+                      className="shop-now-btn position-relative bg-black text-white p-2 mt-2 mb-5"
+                      style={{ fontSize: "8px" , zIndex: 999}}
                       onClick={handleShoBtn}
                     >
                       SHOP NOW

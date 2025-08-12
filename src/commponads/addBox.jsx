@@ -188,7 +188,7 @@ const handleUpdateQuantity = () => {
         </div>
 
         <div className=" d-flex w-100 mt-2 justify-content-between align-items-center">
-          <div className="btn-add bg-black" style={{width : "85%"}}>
+          <div className="btn-add bg-black" style={{width : screenWidth <= 380 ? '100%' : "85%"}}>
             <button
               className="btn text-white w-100 rounded-0 h-100 d-flex justify-content-center align-items-center"
               disabled={!selectedSize || count === 0}
@@ -207,7 +207,11 @@ const handleUpdateQuantity = () => {
                 : "ADD TO CART"}
             </button>
           </div> 
-          <FavBtn data={product}/>
+          {screenWidth <= 380 ?
+            null
+            :
+            <FavBtn data={product}/>
+          }
           </div>
 
 

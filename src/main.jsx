@@ -91,8 +91,8 @@ const location = useLocation();
         style={{
           position: "fixed",
           bottom: "20px",
-          right: "20px",
-          zIndex: 999,
+          right: "0px",
+          zIndex: 500,
           transition: "transform 0.3s ease-in-out",
           color: "black",
         }}
