@@ -6,6 +6,7 @@ import { Card, CardActionArea, CardMedia } from "@mui/material";
 import FavBtn from "../commponads/favBtn";
 import { MdDone } from "react-icons/md";
 import Head from './headPage';
+import DetailsBox from '../commponads/detailsBox';
 
 
 export default function SearchPage() {
@@ -18,6 +19,9 @@ export default function SearchPage() {
     const [products, setProducts] = useState([])
     const name = useParams()
     const nameTitle = name.title.toLocaleLowerCase()
+    const [openDetails , setOpenDetails] = useState(false);
+    const [product , setProduct] = useState({});
+    const [openModal , setOpenModal] = useState(false);
 
         
 
@@ -81,7 +85,7 @@ export default function SearchPage() {
 
     return (
         <>
-            <Head animate={''} name={'SEARCH'} other={`FOR ${nameTitle}`} img={`https://i.pinimg.com/1200x/c0/22/bc/c022bc957d27c7423d6ab21978e47174.jpg`} />
+            <Head animate={''} name={`SEARCH FOR ${nameTitle}` } other={`FOR ${nameTitle}`} img={`https://i.pinimg.com/1200x/b0/fb/ab/b0fbabcb7f3f3bf84fe89c95596f6128.jpg`} />
             <section className="container py-5">
                 <div className="row g-5 justify-content-center align-items-center">
                     {products === false ?
@@ -91,19 +95,34 @@ export default function SearchPage() {
                         :
                         products.map((product) => {
                             return (
-                            <div key={product.id} className="col-11 col-sm-6 col-lg-4 "
-                                {...(screenWidth > 430 ? {"data-aos": "fade-up"} : {})}>
+                            <div key={product.id} className="col-11 col-sm-6 col-lg-4 ">
                                 <Card style={{ boxShadow: "none", width: "100%" }}>
                                     <CardActionArea>
-                                    <Link className="link img-wrapper position-relative" to={"/details/product/" + product.id}>
-                                        <CardMedia
-                                            component="img"
-                                            height="400"
-                                            image={product.MainImage}
-                                            alt={product.name}
-                                            className="img-card"
-                                        />
-                                        </Link>
+                                        {screenWidth > 380 ?
+                                            <Link className="link img-wrapper position-relative" to={`/details/product/${product.id}`}>
+                                                <div className='w-100 h-75'>
+                                                    <img
+                                                    src={product.MainImage}
+                                                    alt={product.name}
+                                                    className="img-card w-100 h-100"
+                                                />
+                                                </div>
+                                            </Link>
+                                            :
+                                            <div className="img-wrapper position-relative" role='button' onClick={() => {
+                                                setOpenDetails(true);
+                                                setProduct(product);
+                                            }}>
+                                                <CardMedia
+                                                    component="img"
+                                                    height="400"
+                                                    image={product.MainImage}
+                                                    alt={product.name}
+                                                    className="img-card"
+                                                />
+                                            </div>
+                                        }
+
                                         <div className="px-3 py-2 d-flex flex-column justify-content-between align-items-center gap-2">
                                             <div className="d-flex justify-content-between align-items-center w-100">
                                                 <p className="name-product p-0 m-0">{product.name}</p>
@@ -133,6 +152,7 @@ export default function SearchPage() {
                         })}
                 </div>
             </section>
+            <DetailsBox openDetails={openDetails} setOpenDetails={setOpenDetails} product={product} openModal={openModal} setOpenModal={setOpenModal} />
         </>
     );
 }

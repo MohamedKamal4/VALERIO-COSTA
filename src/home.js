@@ -376,7 +376,7 @@ function Home() {
           </section>
           <section style={{marginBottom: '200px'}} >
             <Link className="link" to={"/bigSale"}>
-                <Head animate={''} name={'BIG SALE'} other={'COLLECTION'}  img={`https://i.pinimg.com/1200x/a4/82/e2/a482e2f437d56647d77ba00448eb7018.jpg`} />
+                <Head animate={''} name={'BIG SALE'} other={'COLLECTION'}  img={`https://i.pinimg.com/1200x/69/bb/fb/69bbfbd902212959225e826d7888d303.jpg`} />
             </Link>
           </section>
           <section className="d-flex vh-100 justify-content-center align-items-center" style={{marginBottom: '200px'}}>

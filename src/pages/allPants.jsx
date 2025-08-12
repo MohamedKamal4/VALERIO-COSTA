@@ -50,7 +50,7 @@ export default function AllPants() {
 
     return (
         < >
-            <Head animate={name} name={name} other={'COLLECTION'} img={`https://i.pinimg.com/1200x/70/bf/6a/70bf6a5d8bf01afcc4ef44e2f98cb99c.jpg`} />
+            <Head animate={name} name={name} other={'COLLECTION'} img={`https://i.pinimg.com/1200x/a1/4d/74/a14d74309125d96ee75c8bbaa5df977a.jpg`} />
             <section className="container">
                 <div className="pants-links w-100 d-flex align-items-center py-5">
                     <Link to={"/pants"} className={`${location.pathname === "/pants" ? "active-btn" : ""} btn`}>ALL</Link>

@@ -128,7 +128,6 @@ nav ul.list li .link {
     justify-content: start;
     align-items: center;
     width: 100%;
-    font-size: 20px;
     letter-spacing: 2px;
     padding: 10px 0;
     font-weight: 100;
@@ -167,9 +166,8 @@ main .hero-section {
 
 .search-input {
     background: transparent;
-    border: none;
     outline: none;
-    border-bottom: 1px solid black;
+    border: 1px solid black;
     color: black;
     padding: 5px;
     height: 50px;
@@ -301,6 +299,7 @@ color: black !important;
 
     nav ul li {
         justify-content: center;
+
     }
 
     .icons {
@@ -425,7 +424,7 @@ color: black !important;
     }
 
     .btn-add {
-        height: 30px !important;
+        height: 40px !important;
         justify-content: center !important;
         align-items: center !important;
     }

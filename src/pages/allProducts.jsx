@@ -21,7 +21,7 @@ export default function AllProducts() {
     const { products } = useData();
     return (
         <>
-            <Head animate={''} name={'BIG SALE'} other={'COLLECTION'} img={`https://i.pinimg.com/1200x/a4/82/e2/a482e2f437d56647d77ba00448eb7018.jpg`} />
+            <Head animate={''} name={'BIG SALE'} other={'COLLECTION'} img={`https://i.pinimg.com/1200x/c4/83/11/c48311314ebad9f9efc9adcc7403074d.jpg`} />
             <section className="container py-5 mt-5">
                 <cardData.Provider value={{  data : products  }}>
                     <Cards />

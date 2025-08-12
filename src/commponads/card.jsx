@@ -1,18 +1,15 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Card, CardActionArea, CardMedia } from "@mui/material";
-import { useContext, useEffect, useState ,useRef } from "react";
+import { CardMedia } from "@mui/material";
+import { useContext, useEffect, useState } from "react";
 import { MdDone } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { cardData } from "../context/contextCard";
 import FavBtn from "./favBtn";
 import { SquareLoader } from "react-spinners";
-import { TfiClose } from "react-icons/tfi";
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
-import AddBox from './addBox';
+import DetailsBox from './detailsBox';
 
 export default function Cards() {
   const { data } = useContext(cardData);
@@ -52,13 +49,16 @@ export default function Cards() {
         <section className="row justify-content-center align-items-center" style={{ paddingBottom: "300px" }}>
           {data.map((product) => {
             return (
-              <div key={product.id} className="p-3 col-8 col-sm-6 col-md-3" style={{ height: '500px'}} {...(screenWidth > 430 ? { "data-aos": "zoom-in" } : {})}>
+              <div
+              data-aos='zoom-in'
+              data-aos-offset="200"
+              data-aos-easing="ease-in-out"
+              key={product.id} className="p-3 col-12 col-sm-6 col-md-6 col-lg-3" style={{ marginBottom: '50px', height: '550px'}}>
                 <div className='w-100 h-100'>
                   {screenWidth > 380 ?
                       <Link className="link img-wrapper position-relative" to={`/details/product/${product.id}`}>
                         <div className='w-100 h-75'>
                             <img
-
                             src={product.MainImage}
                             alt={product.name}
                             className="img-card w-100 h-100"
@@ -101,50 +101,7 @@ export default function Cards() {
             )
           })
           }
-
-
-
-
-
-
-
-
-
-          {openDetails &&
-          <div className='d-flex p-0 flex-column bg-white position-fixed start-0' style={{overflow: 'hidden',transition: 'all 0.5s ' , bottom: openDetails ? '0' : '-100%' , boxShadow: '0 0 50px black ' , borderTopRightRadius: '40px' , borderTopLeftRadius: '40px' , width: '100vw' , height: '90vh' , zIndex: '9999999999999'}}>
-            <div className='w-100 position-absolute top-0 start-0 d-flex justify-content-end py-3 px-2' style={{zIndex: '99'}}>
-              <button type='button' className='btn'><TfiClose size={24} color={'#000'} onClick={() => setOpenDetails(false)} /></button>
-            </div>
-            <div className='w-100 h-100'>
-              <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
-                <SwiperSlide>
-                  <img className='w-100 h-100' src={product.MainImage} alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img className='w-100 h-100' src={product.images[0]} alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img className='w-100 h-100' src={product.images[1]} alt="" />
-                </SwiperSlide>
-              </Swiper>
-            </div>
-            <div className='w-100 position-absolute bottom-0 start-0' style={{ backgroundColor: '#ffffff96' , backdropFilter: 'blur(5px)', zIndex: '99'}}>
-              <button className='btn w-100' style={{backgroundColor : 'inherit'}} onClick={() => {
-                setOpenModal(!openModal)
-              }}>{openModal ? 'CLOSE' : 'OPEN'} ADD FORM</button>
-              {openModal &&
-                <div className='w-100 p-3 gap-2' style={{transition: 'all 0.5s',height: '250px'}}>
-                <div className='w-100 h-50'>
-                  <p>{product.name}</p>
-                  <p>PRICE : <span  className='name-product'>{product.price} $</span></p>
-                  <p className='pt-1' style={{lineHeight: '10px'}}>DESCRIPTION : <span style={{fontSize: '10px'}}>{product.discription}</span></p>
-                </div>
-                <AddBox product={product} sizes={product.sizes} />
-              </div>
-              }
-            </div>
-          </div>
-          }
+          <DetailsBox openDetails={openDetails} setOpenDetails={setOpenDetails} product={product} openModal={openModal} setOpenModal={setOpenModal} />
         </section>
       )}
     </>

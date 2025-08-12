@@ -108,7 +108,7 @@ export default function Navbar() {
                 <Link
                   to={btn.path}
                   className={`link ${location.pathname.includes(btn.path) ? "active" : ""}`}
-                  onClick={() => setIsOpen(false)} // ⬅ إغلاق المينيو بعد الضغط على الرابط
+                  onClick={() => setIsOpen(false)}
                 >
                   {btn.name}
                 </Link>

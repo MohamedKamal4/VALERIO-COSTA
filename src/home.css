@@ -398,6 +398,10 @@ section {
         font-size: 60px !important;
     }
 
+     main .hero-section {
+        height: 430px !important;
+    }
+
     .head-text {
         font-size: 60px !important;
     }
@@ -444,10 +448,6 @@ section {
     .intro {
         font-size: 50px !important;
         gap: 10px !important;
-    }
-
-    main .hero-section {
-        height: 430px !important;
     }
 
     .btns {

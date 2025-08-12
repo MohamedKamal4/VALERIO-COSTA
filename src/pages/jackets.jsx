@@ -32,7 +32,7 @@ export default function Jackets() {
 
     return (
         <>
-            <Head animate={''} name={'JACKETS'} other={'COLLECTION'} img={`https://i.pinimg.com/1200x/c0/22/bc/c022bc957d27c7423d6ab21978e47174.jpg`} />
+            <Head animate={''} name={'JACKETS'} other={'COLLECTION'} img={`https://i.pinimg.com/1200x/47/6a/66/476a666df31c6a7af530a0bc4880d83c.jpg`} />
             <section className="container" style={{ marginTop: "100px" }}>
                {loading === false ?
                     <cardData.Provider value={{  data : jackets  }}>

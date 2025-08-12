@@ -3,11 +3,30 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "../features/cartSlice/cartSlice";
 import { Alert } from "@mui/material";
+import DetailsBox from "./detailsBox";
 
 export default function Cart() {
   const cartItems = useSelector((state) => state.cart.items);
   const [MsgContent, setMsgContent] = useState(null);
   const [formState, setFormState] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [openDetails , setOpenDetails] = useState(false);
+  const [product , setProduct] = useState({});
+  const [openModal , setOpenModal] = useState(false);
+
+
+          
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  
+
+  console.log(cartItems)
 
   const user =
     JSON.parse(localStorage.getItem("user")) ||
@@ -92,42 +111,55 @@ export default function Cart() {
 
   return (
     <>
-      <section className="vw-100" style={{ paddingTop: "100px", paddingBottom: "300px" }}>
-        <div className="container d-flex flex-column justify-content-center align-items-center gap-5">
-          <div className="row w-100 bg-white">
+      <section style={{ paddingTop: "100px", paddingBottom: "300px" }}>
+        <div className="container d-flex flex-column justify-content-center align-items-center" style={{gap: '50px' }}>
+          <div className="d-flex justify-content-center gap-5 align-items-center flex-wrap">
             {cartItems.length === 0 ? (
-              <div className="col-12 d-flex flex-column justify-content-center align-items-center" style={{ marginTop: "200px" }}>
+              <div className="w-100 d-flex flex-column justify-content-center align-items-center" style={{ marginTop: "200px" }}>
                 <h1 className="name-product text-center">YOUR CART IS EMPTY</h1>
               </div>
             ) : (
               cartItems.map((item) => (
                 <div
-                  key={item.id}
-                  className="master-box mb-4 col-12 col-sm-6 col-md-4 mb-5 col-lg-3 d-flex flex-column justify-content-between align-items-center"
-                  style={{ minHeight: "350px" }}
+                  key={item.size}
+                  className="d-flex flex-column justify-content-between align-items-center"
+                  style={{ marginBottom: '50px',width: '300px', height: '450px'}}
                 >
-                  {/* صورة المنتج */}
-                  <div className="cart-item position-relative w-100" style={{ height: "300px" }}>
-                    <Link className="link img-wrapper" to={`/details/product/${item.id}`}>
-                      <img
-                        className="img-fluid w-100 h-100"
-                        style={{ objectFit: "cover" }}
-                        src={item.product.MainImage}
-                        alt={item.product.name}
-                      />
-                    </Link>
-                  </div>
 
-                  {/* بيانات المنتج */}
-                  <div className="content-box p-3 text-center" style={{ flexGrow: 1 }}>
-                    <p className="name-product mb-1">SIZE: {item.size}</p>
-                    <p className="name-product mb-1">QUANTITY: {item.quantity}</p>
-                    <p className="name-product mb-2">
+                  {screenWidth > 380 ?
+                      <Link className="link img-wrapper position-relative" to={`/details/product/${product.id}`}>
+                        <div className='w-100' style={{height: '350px'}}>
+                            <img
+                            src={item.product.MainImage}
+                            alt={item.product.name}
+                            className="img-card w-100 h-100"
+                          />
+                        </div>
+                      </Link>
+                      :
+                      <div className="img-wrapper position-relative" role='button' onClick={() => {
+                        setOpenDetails(true);
+                        setProduct(item.product);
+                      }}>
+                        <div className='w-100' style={{height: '350px'}}>
+                            <img
+                            src={item.product.MainImage}
+                            alt={item.product.name}
+                            className="img-card w-100 h-100"
+                          />
+                        </div>
+                      </div>
+                  }
+
+                <div className="bg-white w-100 " style={{height: '100px'}} >
+                  <div className="content-box d-flex justify-content-between align-items-center py-3 text-center">
+                    <p className="name-product">SIZE: {item.size}</p>
+                    <p className="name-product">QUANTITY: {item.quantity}</p>
+                    <p className="name-product">
                       TOTAL: {(item.product.price * item.quantity).toFixed(2)} $
                     </p>
                   </div>
 
-                  {/* زر الإزالة */}
                   <button
                     className="btn btn-remove text-white w-100 bg-black rounded-0"
                     style={{ height: "30px" }}
@@ -136,11 +168,12 @@ export default function Cart() {
                     REMOVE
                   </button>
                 </div>
+                  
+                </div>
               ))
             )}
           </div>
 
-          {/* فورم الدفع */}
           <div className="row w-100 justify-content-center align-items-center flex-column gap-5">
             {cartItems.length > 0 && (
               <div className={`col-12 ${formState ? "open-form-inputs d-flex" : "close-form-inputs d-none"}`}>
@@ -181,7 +214,6 @@ export default function Cart() {
               </div>
             )}
 
-            {/* أزرار الدفع */}
             {cartItems.length > 0 && (
               formState === false ? (
                 <div className="btn-group w-100 d-flex gap-4 py-3 flex-column justify-content-center align-items-center">
@@ -206,8 +238,9 @@ export default function Cart() {
         </div>
         <div className="d-flex justify-content-center align-items-center position-fixed" style={{zIndex: '9999999',left: "20px",bottom: "20px"}}>
             {MsgContent}
-        </div>
+        </div> 
       </section>
+      <DetailsBox openDetails={openDetails} setOpenDetails={setOpenDetails} product={product} openModal={openModal} setOpenModal={setOpenModal} />
     </>
   );
 }
